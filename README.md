@@ -24,5 +24,15 @@ Ionic Japan User Groupのslack #code_question でサポートを行っており�
 - ];  // この行は削除してはいけません
 ```
 
+- P228で、 `src/app/auth/firebase.error.ts` が `src/auth/firebase.error.ts` と表記されている
+
 ### その他の誤字誤植
-- 現在ありません
+- P225でInputが[type=text]になっている。なお、どちらにしてもFirebaseのチェックがあるためどちらにしても問題なく動きます
+
+```
+- <ion-input type="text" required></ion-input>  // type="email" の間違い
++ <ion-input type="text" required [(ngModel)]="login.email" // type="email" の間違い
++ name="email"></ion-input>
+```
+
+- P247の文中で、 `ionViewWillEnter()` が `ioniViewWillEnter()` と表記されてる
