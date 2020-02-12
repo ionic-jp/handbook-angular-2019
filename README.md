@@ -1,6 +1,48 @@
 # Ionicで作るモバイルアプリ制作入門［Angular版］
 書籍「[Ionicで作る モバイルアプリ制作入門［Angular版］](https://amzn.to/35mKmVq)」のサポートページです。著者とIonic Japan User Groupにて運営を行っております。
 
+
+## 【重要】Ionic5リリースによる変更
+2020年2月12日にIonic5がリリースされました。それに伴ってスターターテンプレートのアップデートがあったため、 **書籍の通りに進めるためには以下の読み替えが必要です。**
+なお、スターターテンプレートの変更があっただけですので、パッケージのバージョンをあげることには問題はありません（2020年2月12日現在）
+
+### 1) P43 SECTION 06 プロジェクトをつくろう
+コマンドを以下の通り変更ください。なお、作成するプロジェクト名の質問と `? Starter template:` のテンプレートの選択はスキップされます。
+
+```bash
+% ionic start --type=angular
+↓
+% ionic start 'tasklist-tutorial' git@github.com:ionic-jp/starters-v4-angular-sidemenu.git --type=angular
+```
+
+### 2) P113 SECTION 14 WordPressを表示するアプリを作ろう〜チュートリアル②
+コマンドを以下の通り変更ください。なお、 `? Starter template:` のテンプレートの選択はスキップされます。
+
+```bash
+% ionic start wp-tutorial --type=angular
+↓
+% ionic start 'wp-tutorial' git@github.com:ionic-jp/starters-v4-angular-blank.git --type=angular
+```
+
+### 3) P169 SECTION 19 Capacitorを使ったモバイルアプリ制作〜チュートリアル④
+コマンドを以下の通り変更ください。なお、 `? Starter template:` のテンプレートの選択はスキップされます。
+
+```bash
+% ionic start native-tutorial --type=angular
+↓
+% ionic start 'native-tutorial' git@github.com:ionic-jp/starters-v4-angular-tabs.git --type=angular
+```
+
+### 4) P207 SECTION 21 本気で作るチャットアプリ〜チュートリアル⑤
+コマンドを以下の通り変更ください。
+
+```bash
+% ionic start chat-tutorial tabs --type=angular
+↓
+% ionic start 'chat-tutorial' git@github.com:ionic-jp/starters-v4-angular-tabs.git --type=angular
+```
+
+
 ## サポートチャンネル
 Ionic Japan User Groupのslack #code_question でサポートを行っております。なぜかうまく動かない、よくわからない、ということありましたら挫折する前にぜひご利用くださいませー。
 
@@ -8,6 +50,7 @@ Ionic Japan User Groupのslack #code_question でサポートを行っており�
 
 ## チュートリアル
 本書のチュートリアルは、以下のレポジトリでステップ別にコミットしています。なぜか動かない時などにご利用下さい。
+
 - [チュートリアル「タスクリストアプリをつくってみよう」](https://github.com/ionic-jp/handbook-angular-2019-tasklist-tutorial)
 - [チュートリアル「WordPressを表示するアプリをつくろう / コードリファクタリング」](https://github.com/ionic-jp/handbook-angular-2019-wp-tutorial)
 - [チュートリアル「Capacitorをつかったモバイルアプリ制作」](https://github.com/ionic-jp/handbook-angular-2019-native-tutorial)
