@@ -1,7 +1,6 @@
 # Ionicで作るモバイルアプリ制作入門［Angular版］
 書籍「[Ionicで作る モバイルアプリ制作入門［Angular版］](https://amzn.to/35mKmVq)」のサポートページです。著者とIonic Japan User Groupにて運営を行っております。
 
-
 ## 【重要】Ionic5リリースによる変更
 2020年2月12日にIonic5がリリースされました。それに伴ってスターターテンプレートのアップデートがあったため、 **書籍の通りに進めるためには以下の読み替えが必要です。**
 なお、スターターテンプレートの変更があっただけですので、パッケージのバージョンをあげることには問題はありません（2020年2月12日現在）。
@@ -44,6 +43,39 @@
 % ionic start 'chat-tutorial' https://github.com/ionic-jp/starters-v4-angular-tabs.git --type=angular
 ```
 
+## 【重要】Angular/Fire 6.0.0からの変更
+`Angular/Fire@6.0.0` から仕様に変更があったため、以下を読み替えてください。
+
+- P243の `this.afAuth.currentUser` メソッドがPromiseになったため、以下に変更。
+
+```
+- getUserId(): string {
+-   return this.afAuth.currentUser.uid;
++ async getUserId(): Promise<string> {
++   const user = await this.afAuth.currentUser;
++   return user.uid;
+  }
+```
+
+また、そのため、 `getUserId()` メソッドを利用していたところには、 `await` を追加する必要があります。
+
+- P244の `ionViewWillEnter()` 内
+```
+- this.uid = this.auth.getUserId();
++ this.uid = await this.auth.getUserId();
+```
+
+- P248の `tab1.page.ts` - `ngOnInit()` 内
+```
+- const user = this.firestore.userInit(await this.auth.getUserId());
++ const user = await this.firestore.userInit(await this.auth.getUserId());
+```
+
+- P257の `tab1.page.ts` - `ionViewWillEnter` 内
+```
+- this.uid = await this.auth.getUserId();
++ this.uid = this.auth.getUserId();
+```
 
 ## サポートチャンネル
 Ionic Japan User Groupのslack #code_question でサポートを行っております。なぜかうまく動かない、よくわからない、ということありましたら挫折する前にぜひご利用くださいませー。
