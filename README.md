@@ -45,6 +45,13 @@
 
 ## 【重要】Angular/Fire 6.0.0からの変更
 `Angular/Fire@6.0.0` から仕様に変更があったため、以下を読み替えてください。
+- SECTION21全般
+APIが変更され、AngularFireAuth以下の `auth` が不要となりました。 `this.afAuth.auth.****()` は `this.afAuth.****()` となります。例えば、P219では以下のように読み替えてください。
+
+```
+- + return this.afAuth.auth
++ + return this.afAuth
+```
 
 - P243の `this.afAuth.currentUser` メソッドがPromiseになったため、以下に変更。
 
