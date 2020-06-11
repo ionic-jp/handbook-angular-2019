@@ -13,7 +13,7 @@
 ```bash
 % ionic start --type=angular
 ↓
-% ionic start 'tasklist-tutorial' https://github.com/ionic-jp/starters-v4-angular-sidemenu.git --type=angular
+% ionic start 'tasklist-tutorial' https://github.com/ionic-jp/starters-v4-angular-sidemenu.git
 ```
 
 ### 2) P113 SECTION 14 WordPressを表示するアプリを作ろう〜チュートリアル②
@@ -22,7 +22,7 @@
 ```bash
 % ionic start wp-tutorial --type=angular
 ↓
-% ionic start 'wp-tutorial' https://github.com/ionic-jp/starters-v4-angular-blank.git --type=angular
+% ionic start 'wp-tutorial' https://github.com/ionic-jp/starters-v4-angular-blank.git
 ```
 
 ### 3) P169 SECTION 19 Capacitorを使ったモバイルアプリ制作〜チュートリアル④
@@ -31,7 +31,7 @@
 ```bash
 % ionic start native-tutorial --type=angular
 ↓
-% ionic start 'native-tutorial' https://github.com/ionic-jp/starters-v4-angular-tabs.git --type=angular
+% ionic start 'native-tutorial' https://github.com/ionic-jp/starters-v4-angular-tabs.git
 ```
 
 ### 4) P207 SECTION 21 本気で作るチャットアプリ〜チュートリアル⑤
@@ -40,7 +40,7 @@
 ```bash
 % ionic start chat-tutorial tabs --type=angular
 ↓
-% ionic start 'chat-tutorial' https://github.com/ionic-jp/starters-v4-angular-tabs.git --type=angular
+% ionic start 'chat-tutorial' https://github.com/ionic-jp/starters-v4-angular-tabs.git
 ```
 
 ## 【重要】Angular/Fire 6.0.0からの変更
