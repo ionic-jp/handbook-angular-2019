@@ -46,16 +46,26 @@
 ## 【重要】Angular/Fire 6.0.0からの変更
 `Angular/Fire@6.0.0` から仕様に変更があったため、以下を読み替えてください。
 - SECTION21全般
+新APIが公開されたため、書籍で利用してるAPIは互換APIとなります。すべての `@angular/fire` のインポートパスを `@angular/fire/compat` としてください。例えば、P210では以下のように読み替えてください。
+
+```diff
+- + import { AngularFireModule } from '@angular/fire';
+- + import { AngularFireAuthModule } from '@angular/fire/auth';
++ import { AngularFireModule } from '@angular/fire/compat';
++ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+```
+
+
 APIが変更され、AngularFireAuth以下の `auth` が不要となりました。 `this.afAuth.auth.****()` は `this.afAuth.****()` となります。例えば、P219では以下のように読み替えてください。
 
-```
+```diff
 - + return this.afAuth.auth
 + + return this.afAuth
 ```
 
 - P243の `this.afAuth.currentUser` メソッドがPromiseになったため、以下に変更。
 
-```
+```diff
 - getUserId(): string {
 -   return this.afAuth.currentUser.uid;
 + async getUserId(): Promise<string> {
@@ -67,19 +77,19 @@ APIが変更され、AngularFireAuth以下の `auth` が不要となりました
 また、そのため、 `getUserId()` メソッドを利用していたところには、 `await` を追加する必要があります。
 
 - P244の `ionViewWillEnter()` 内
-```
+```diff
 - this.uid = this.auth.getUserId();
 + this.uid = await this.auth.getUserId();
 ```
 
 - P248の `tab1.page.ts` - `ngOnInit()` 内
-```
+```diff
 - const user = this.firestore.userInit(await this.auth.getUserId());
 + const user = await this.firestore.userInit(await this.auth.getUserId());
 ```
 
 - P257の `tab1.page.ts` - `ionViewWillEnter` 内
-```
+```diff
 - this.uid = await this.auth.getUserId();
 + this.uid = this.auth.getUserId();
 ```
