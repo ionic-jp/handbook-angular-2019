@@ -43,6 +43,27 @@
 % ionic start 'chat-tutorial' https://github.com/ionic-jp/starters-v4-angular-tabs.git
 ```
 
+## 【重要】Capacitor3リリースによる変更
+Capacitor3リリースがリリースされました。Capacitor3ではコアプラグインは本体から外れ、別パッケージになったため、追加でパッケージのインストールが必要です。
+
+- P179にて以下のコマンドを実行
+
+```bash
+% npm install @capacitor/local-notifications
+% npm install @capacitor/camera
+% npx cap sync
+```
+
+また、それにともない、利用してるプラグインが `@rdlabo/capacitor-admob` から `@capacitor-community/admob` に変更となります。
+
+- P186
+
+```diff
+- npm install @rdlabo/capacitor-admob
++ npm install @capacitor-community/admob
+```
+
+
 ## 【重要】Angular/Fire 6.0.0からの変更
 `Angular/Fire@6.0.0` から仕様に変更があったため、以下を読み替えてください。
 - SECTION21全般
@@ -93,6 +114,7 @@ APIが変更され、AngularFireAuth以下の `auth` が不要となりました
 - this.uid = await this.auth.getUserId();
 + this.uid = this.auth.getUserId();
 ```
+
 
 ## サポートチャンネル
 Ionic Japan User Groupのslack #code_question でサポートを行っております。なぜかうまく動かない、よくわからない、ということありましたら挫折する前にぜひご利用くださいませー。
