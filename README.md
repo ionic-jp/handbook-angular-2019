@@ -111,8 +111,8 @@ APIが変更され、AngularFireAuth以下の `auth` が不要となりました
 
 - P257の `tab1.page.ts` - `ionViewWillEnter` 内
 ```diff
-- this.uid = await this.auth.getUserId();
-+ this.uid = this.auth.getUserId();
+- this.uid = this.auth.getUserId();
++ this.uid = await this.auth.getUserId();
 ```
 
 
