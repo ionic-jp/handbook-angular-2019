@@ -63,9 +63,41 @@ Capacitor3リリースがリリースされました。Capacitor3ではコアプ
 + npm install @capacitor-community/admob
 ```
 
+- P188
 
-## 【重要】Angular/Fire 6.0.0からの変更
-`Angular/Fire@6.0.0` から仕様に変更があったため、以下を読み替えてください。
+```diff
++ + import android.os.Bundle;
+
+      public class MainActivity extends BridgeActivity {
+-       super.onCreate(savedInstanceState);
+- 
+-       // Initializes the Bridge
+-       this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
+-         // Additional plugins you've installed go here
+-         // Ex: add(TotallyAwesomePlugin.class);
+-         add(jp.rdlabo.capacitor.plugin.admob.AdMob.class);
+-       }});
++ +     @Override
++ +    public void onCreate(Bundle savedInstanceState) {
++ +        super.onCreate(savedInstanceState);
++ +        registerPlugin(com.getcapacitor.community.admob.AdMob.class);
++ +     }
+```
+
+詳細は、 https://github.com/capacitor-community/admob をご確認ください。
+
+### iOS15からの変更
+iOS15からPush通知まわりでユーザにパーミッションを求めないと権限を受け取ることができなくなりました。それに伴い、P182で以下のコードの変更が必要です。
+
+```diff
+- localNotification() {
++ async localNotification() {
++     await Plugins.LocalNotifications.requestPermissions();
+      Plugins.LocalNotifications.schedule({
+```
+
+## 【重要】 @angular/fire6.0.0からの変更
+`@angular/fire@6.0.0` から仕様に変更があったため、以下を読み替えてください。
 - SECTION21全般
 新APIが公開されたため、書籍で利用してるAPIは互換APIとなります。すべての `@angular/fire` のインポートパスを `@angular/fire/compat` としてください。例えば、P210では以下のように読み替えてください。
 
