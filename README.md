@@ -43,7 +43,7 @@
 % ionic start 'chat-tutorial' https://github.com/ionic-jp/starters-v4-angular-tabs.git
 ```
 
-## 【重要】Capacitor3リリースによる変更
+## 【重要】Capacitor4リリースによる変更
 Capacitor3リリースがリリースされました。Capacitor3ではコアプラグインは本体から外れ、別パッケージになったため、追加でパッケージのインストールが必要です。
 
 - P179にて以下のコマンドを実行
@@ -61,27 +61,6 @@ Capacitor3リリースがリリースされました。Capacitor3ではコアプ
 ```diff
 - npm install @rdlabo/capacitor-admob
 + npm install @capacitor-community/admob
-```
-
-- P188
-
-```diff
-+ + import android.os.Bundle;
-
-      public class MainActivity extends BridgeActivity {
--       super.onCreate(savedInstanceState);
-- 
--       // Initializes the Bridge
--       this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
--         // Additional plugins you've installed go here
--         // Ex: add(TotallyAwesomePlugin.class);
--        add(jp.rdlabo.capacitor.plugin.admob.AdMob.class);
--       }});
-+ +     @Override
-+ +    public void onCreate(Bundle savedInstanceState) {
-+ +        super.onCreate(savedInstanceState);
-+ +        registerPlugin(com.getcapacitor.community.admob.AdMob.class);
-+ +     }
 ```
 
 詳細は、 https://github.com/capacitor-community/admob をご確認ください。
