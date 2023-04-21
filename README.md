@@ -86,6 +86,10 @@ Capacitor3リリースがリリースされました。Capacitor3ではコアプ
 
 詳細は、 https://github.com/capacitor-community/admob をご確認ください。
 
+### 【軽微】 @ionic-nativeパッケージが削除されています
+P71などに、 `@ionic-native/core` 、 `@ionic-native/splash-screen` 、　`@ionic-native/status-bar` といった表記があり、インポートされたり、providersに入ったりしておりますが、Capacitor4以降これらは不要になったため、テンプレートファイルから削除されています。チュートリアルには影響がないところですが、ご留意ください。
+
+
 ### iOS15からの変更
 iOS15からPush通知まわりでユーザにパーミッションを求めないと権限を受け取ることができなくなりました。それに伴い、P182で以下のコードの変更が必要です。
 
