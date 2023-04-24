@@ -90,7 +90,7 @@ Capacitor4リリースがリリースされました。Capacitor4ではコアプ
 以下のAndroidのプラグインを `MainActivity `で `add` する処理は不要になりました。
 
 ```
-add(jp..rdlabo.capacitor.plugin.admob.Admob.class)
+add(jp.rdlabo.capacitor.plugin.admob.Admob.class)
 ```
 
 - P189
