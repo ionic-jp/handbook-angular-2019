@@ -54,6 +54,13 @@ Capacitor4リリースがリリースされました。Capacitor4ではコアプ
 % npx cap sync
 ```
 
+- P237にて、追加で以下のコマンドを実行。
+
+```bash
+% npm install @capacitor/camera
+% npx cap sync
+```
+
 また、このことでインポート元が変更になります。
 
 - P182
@@ -69,8 +76,16 @@ Capacitor4リリースがリリースされました。Capacitor4ではコアプ
 - P196
 
 ```diff
-- import { Plugins } from '@capacitor/core';
+- import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
 + import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+...
+- const image = await Plugins.Camera.getPhoto({
++ const image = await Camera.getPhoto({
+```
+
+```diff
+- import { Plugins, CameraResultType } from '@capacitor/core';
++ import { Camera, CameraResultType } from '@capacitor/camera';
 ...
 - const image = await Plugins.Camera.getPhoto({
 + const image = await Camera.getPhoto({
