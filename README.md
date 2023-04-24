@@ -44,7 +44,7 @@
 ```
 
 ## 【重要】Capacitor4リリースによる変更
-Capacitor3リリースがリリースされました。Capacitor3ではコアプラグインは本体から外れ、別パッケージになったため、追加でパッケージのインストールが必要です。
+Capacitor4リリースがリリースされました。Capacitor4ではコアプラグインは本体から外れ、別パッケージになったため、追加でパッケージのインストールが必要です。
 
 - P179にて以下のコマンドを実行
 
@@ -54,7 +54,29 @@ Capacitor3リリースがリリースされました。Capacitor3ではコアプ
 % npx cap sync
 ```
 
-また、それにともない、利用してるプラグインが `@rdlabo/capacitor-admob` から `@capacitor-community/admob` に変更となります。
+また、このことでインポート元が変更になります。
+
+- P182
+
+```diff
+- import { Plugins } from '@capacitor/core';
++ import { LocalNotifications } from '@capacitor/local-notifications';
+...
+- Plugins.LocalNotifications.schedule({
++ LocalNotifications.schedule({
+```
+
+- P196
+
+```diff
+- import { Plugins } from '@capacitor/core';
++ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+...
+- const image = await Plugins.Camera.getPhoto({
++ const image = await Camera.getPhoto({
+```
+
+同様に、利用してるプラグインが `@rdlabo/capacitor-admob` から `@capacitor-community/admob` に変更となります。
 
 - P186
 
@@ -63,10 +85,46 @@ Capacitor3リリースがリリースされました。Capacitor3ではコアプ
 + npm install @capacitor-community/admob
 ```
 
+- P188
+
+以下のAndroidのプラグインを `MainActivity `で `add` する処理は不要になりました。
+
+```
+add(jp..rdlabo.capacitor.plugin.admob.Admob.class)
+```
+
+- P189
+
+```diff
+- import { Plugins } from '@capacitor/core';
++ import { Admob } from '@capacitor-community/admob'
+...
+- Plugins.Admob.initialize({
++ Admob.initialize({
+```
+
+- P190
+
+```diff
+- import { Plugins } from '@capacitor/core';
+- import { AdOptions, AdSize, AdPosition } from '@rdlabo/admob';
++ import { Admob, AdOptions, AdSize, AdPosition } from '@capacitor-community/admob';
+...
+- Plugins.Admob.showBanner(options).then({
++ Admob.showBanner(options).then({
+...
+- Plugins.Admob.hideBanner(options).then({
++ Admob.hideBanner(options).then({
+```
+
 詳細は、 https://github.com/capacitor-community/admob をご確認ください。
 
-### 【軽微】 @ionic-nativeパッケージが削除されています
-P71などに、 `@ionic-native/core` 、 `@ionic-native/splash-screen` 、　`@ionic-native/status-bar` といった表記があり、インポートされたり、providersに入ったりしておりますが、Capacitor4以降これらは不要になったため、テンプレートファイルから削除されています。チュートリアルには影響がないところですが、ご留意ください。
+### @ionic-nativeパッケージが削除されています
+P71などに、 `@ionic-native/core` 、 `@ionic-native/splash-screen` 、　`@ionic-native/status-bar` といった表記があり、インポートされたり、providersに入ったりしておりますが、Capacitor4以降これらは不要になったため、テンプレートファイルから削除されています。
+
+また、Capacitorプラグインが充実し、Cordovaプラグインを使う必要が薄くなったことから、P192の「Cordovaプラグインを使ってバッジで通知数を知らせよう」は非推奨とします。もしも自分でチャレンジする場合は、 `@ionic-native` が、 `@awesome-cordova-plugins` にリネームされたことを念頭にお試しください。詳しくは以下記事をご覧ください。
+
+https://ionic.io/blog/a-new-chapter-for-ionic-native
 
 
 ### iOS15からの変更
