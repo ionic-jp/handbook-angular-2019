@@ -1,7 +1,7 @@
 # Ionicで作るモバイルアプリ制作入門［Angular版］
 書籍「[Ionicで作る モバイルアプリ制作入門［Angular版］](https://amzn.to/35mKmVq)」のサポートページです。著者とIonic Japan User Groupにて運営を行っております。
 
-## Ionic CLIのインストールの変更
+## Ionic CLIの変更
 
 - P32
 
@@ -11,6 +11,18 @@ npmパッケージ名が変更されました。
 % npm install ionic -g
 ↓
 % npm install @ionic/cli -g
+```
+
+- P48
+
+またそれに伴い、CLIから `Ionic Lab` が分離されました。そのため、 `ionic serve --lab` コマンドは廃止され、Ionic Labをためそうと思うと、以下の手順が必要になります。
+
+```bash
+% npm i @ionic/lab --save-dev
+% ionic serve
+
+// 別のターミナルで
+% npx ionic-lab http://localhost:8100
 ```
 
 ## 【重要】Ionic5リリースによる変更
