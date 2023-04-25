@@ -177,7 +177,16 @@ iOS15からPush通知まわりでユーザにパーミッションを求めな�
 ```
 
 ## 【重要】 @angular/fire6.0.0からの変更
-`@angular/fire@6.0.0` から仕様に変更があったため、以下を読み替えてください。
+`@angular/fire@6.0.0` から仕様に変更がありました。まず、アプリとライブラリ内部の整合性をとるために、 `tsconfig.json` を以下のように書き換えてください。
+
+```diff
+     "useDefineForClassFields": false,
++     "skipLibCheck": true,
+    },
+```
+
+また、以下を読み替えてください。
+
 - SECTION21全般
 新APIが公開されたため、書籍で利用してるAPIは互換APIとなります。すべての `@angular/fire` のインポートパスを `@angular/fire/compat` としてください。例えば、P210では以下のように読み替えてください。
 
