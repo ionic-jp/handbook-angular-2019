@@ -266,7 +266,7 @@ Ionic Japan User Groupのslack #code_question でサポートを行っており�
 ### その他の誤字誤植
 - P225でInputが[type=text]になっている。なお、どちらにしてもFirebaseのチェックがあるためどちらにしても問題なく動きます
 
-```
+```diff
 - <ion-input type="text" required></ion-input>  // type="email" の間違い
 + <ion-input type="text" required [(ngModel)]="login.email" // type="email" の間違い
 + name="email"></ion-input>
