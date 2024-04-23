@@ -172,7 +172,7 @@ iOS15からPush通知まわりでユーザにパーミッションを求めな�
 ```diff
 - localNotification() {
 + async localNotification() {
-+     await Plugins.LocalNotifications.requestPermissions();
++     await LocalNotifications.requestPermissions();
       Plugins.LocalNotifications.schedule({
 ```
 
