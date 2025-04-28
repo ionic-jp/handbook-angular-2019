@@ -181,11 +181,20 @@ iOS15からPush通知まわりでユーザにパーミッションを求めな�
 
 ```diff
      "useDefineForClassFields": false,
-+     "skipLibCheck": true,
++    "skipLibCheck": true,
     },
 ```
 
 また、以下を読み替えてください。
+
+- P207
+
+依存関係の整理のため、インストールバージョンを指定。
+
+```diff
+- % npm install firebase @angular/fire
++ % npm install firebase@10 @angular/fire@18
+```
 
 - SECTION21全般
 新APIが公開されたため、書籍で利用してるAPIは互換APIとなります。すべての `@angular/fire` のインポートパスを `@angular/fire/compat` としてください。例えば、P210では以下のように読み替えてください。
